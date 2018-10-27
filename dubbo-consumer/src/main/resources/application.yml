@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: dubbo-consumer-demo
+server:
+  port: 9092
+dubbo:
+  application:
+    name: dubbo-consumer
+  registry:
+    address: zookeeper://139.196.140.168:2181
+  consumer:
+    check: false
+  scan:
+    base-packages: com.demo.springboot.dubbo

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>springbootdubbodemo</artifactId>
+		<groupId>com.demo</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>dubbo-api</artifactId>
+	<packaging>jar</packaging>
+
+    <!-- 在这里打包的时候注意一下，默认该 pom.xml 是继承了父类项目的 pom.xml 中的 spring-boot 的 maven 打包插件，使用 spring-boot 的 maven 的打包插件会打包失败（它会去寻找 spring-boot 启动类，找不到则会打包失败），
+    可以先去掉父类项目中的 spring-boot 打包插件，或者在这里排除 spring-boot 的 maven 打包插件，然后引入新的 maven 打包插件
+    -->
+</project>
