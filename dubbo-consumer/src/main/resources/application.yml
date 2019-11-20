@@ -7,7 +7,7 @@ dubbo:
   application:
     name: dubbo-consumer
   registry:
-    address: zookeeper://139.196.140.168:2181
+    address: zookeeper://139.196.140.168:2181?backup=139.196.140.168:2182,139.196.140.168:2183
   consumer:
     check: false
   scan:
