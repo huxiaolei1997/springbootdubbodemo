@@ -6,4 +6,6 @@ package com.demo.springboot.dubbo;
  **/
 public interface TestService {
     String getName(String name);
+
+    UserVo addUser(UserDto userDto);
 }

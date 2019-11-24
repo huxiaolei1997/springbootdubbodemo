@@ -6,7 +6,10 @@ import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.utils.ReferenceConfigCache;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.service.GenericService;
+import com.alibaba.fastjson.JSON;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +24,7 @@ import java.util.concurrent.TimeoutException;
  */
 public class Main {
     public static void main(String[] args) {
-        aysncInvoke();
+//        aysncInvoke();
         syncInvoke();
     }
 
@@ -32,7 +35,7 @@ public class Main {
         ApplicationConfig applicationConfig = new ApplicationConfig();
         applicationConfig.setName("consumer");
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        registryConfig.setAddress("zookeeper://139.196.140.168:2181");
         ReferenceConfig<GenericService> referenceConfig = new ReferenceConfig<>();
         referenceConfig.setInterface("com.demo.springboot.dubbo.TestService");
 
@@ -58,13 +61,21 @@ public class Main {
 
         Object result = genericService.$invoke("getName", new String[]{String.class.getName()}, new Object[]{"world"});
         System.out.println(result);
+
+        Map<String, Object> params = new HashMap<>(16);
+        params.put("class", "com.demo.springboot.dubbo.UserDto");
+        params.put("userName", "测试名称");
+        Object result2 = genericService.$invoke("addUser", new String[]{"com.demo.springboot.dubbo.UserDto"}, new Object[]{params});
+        System.out.println(JSON.toJSONString(result2));
+
+        System.exit(0);
     }
 
     public static void aysncInvoke() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
         applicationConfig.setName("consumer");
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        registryConfig.setAddress("zookeeper://139.196.140.168:2181");
         ReferenceConfig<GenericService> referenceConfig = new ReferenceConfig<>();
         referenceConfig.setInterface("com.demo.springboot.dubbo.TestService");
 
@@ -104,5 +115,6 @@ public class Main {
         }
 
         System.out.println(result);
+        System.exit(0);
     }
 }

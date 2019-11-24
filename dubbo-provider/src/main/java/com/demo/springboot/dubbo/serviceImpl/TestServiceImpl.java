@@ -1,7 +1,11 @@
 package com.demo.springboot.dubbo.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.fastjson.JSON;
 import com.demo.springboot.dubbo.TestService;
+import com.demo.springboot.dubbo.UserDto;
+import com.demo.springboot.dubbo.UserVo;
+import org.springframework.beans.BeanUtils;
 
 /**
  * @author xiaolei hu
@@ -16,5 +20,13 @@ public class TestServiceImpl implements TestService {
     public String getName(String name) {
         System.out.println("ddddssdfdfd" + name);
         return "Your name is " + name;
+    }
+
+    @Override
+    public UserVo addUser(UserDto userDto) {
+        System.out.println("UserDto is " + JSON.toJSONString(userDto));
+        UserVo userVo = new UserVo();
+        BeanUtils.copyProperties(userDto, userVo);
+        return userVo;
     }
 }
