@@ -1,4 +1,4 @@
-package com.demo.springboot.dubbo.service;
+package com.demo.springboot.dubbo;
 
 /**
  * @author xiaolei hu

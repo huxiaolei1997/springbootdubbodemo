@@ -1,7 +1,7 @@
 package com.demo.springboot.dubbo.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.demo.springboot.dubbo.service.TestService;
+import com.demo.springboot.dubbo.TestService;
 
 /**
  * @author xiaolei hu
@@ -14,6 +14,7 @@ import com.demo.springboot.dubbo.service.TestService;
 public class TestServiceImpl implements TestService {
     @Override
     public String getName(String name) {
+        System.out.println("ddddssdfdfd" + name);
         return "Your name is " + name;
     }
 }
