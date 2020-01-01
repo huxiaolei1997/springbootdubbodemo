@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-    @Reference(version = "1.0")
+    @Reference(version = "1.0", filter = "consumerFilter")
     private TestService testService;
 
     @RequestMapping("/getname/{name}")
