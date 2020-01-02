@@ -15,7 +15,7 @@ import org.slf4j.MDC;
  * @company xxx
  * @date 2020年01月01日 18:38 胡晓磊 Exp $
  */
-@Activate(group = {Constants.CONSUMER}, order = -9999)
+@Activate(group = {Constants.CONSUMER}, order = Integer.MIN_VALUE)
 @Slf4j
 public class ConsumerTraceFilter implements Filter {
     private static final String TRACE_ID = "traceId";
@@ -25,14 +25,9 @@ public class ConsumerTraceFilter implements Filter {
 
         try {
             String traceId = TraceIdUtil.getRpcTraceId();
-//        MDC.put(TRACE_ID, traceId);
-            if (StringUtils.isNotEmpty(traceId)) {
-                log.info("consumer当前traceId:{}", traceId);
-                RpcContext.getContext().setAttachment(TRACE_ID, traceId);
-            } else {
-                // 调用无traceID
-                RpcContext.getContext().setAttachment(TRACE_ID, TraceIdUtil.getRpcTraceId());
-            }
+            MDC.put(TRACE_ID, traceId);
+            log.info("consumer当前traceId:{}", traceId);
+            RpcContext.getContext().setAttachment(TRACE_ID, traceId);
         }
         catch (Exception var8) {
             log.error("ConsumerTraceFilter fail, please check...", var8.getMessage(), var8);

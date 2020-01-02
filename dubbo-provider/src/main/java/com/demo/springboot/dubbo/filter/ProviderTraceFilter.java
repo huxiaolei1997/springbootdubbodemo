@@ -15,7 +15,7 @@ import org.slf4j.MDC;
  * @company xxx
  * @date 2020年01月01日 18:39 胡晓磊 Exp $
  */
-@Activate(group = {Constants.CONSUMER}, order = -9999)
+@Activate(group = {Constants.PROVIDER}, order = Integer.MIN_VALUE)
 @Slf4j
 public class ProviderTraceFilter implements Filter {
     private static final String TRACE_ID = "traceId";
@@ -24,7 +24,7 @@ public class ProviderTraceFilter implements Filter {
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         try {
             String traceId = invocation.getAttachment(TRACE_ID);
-//        MDC.put(TRACE_ID, traceId);
+            MDC.put(TRACE_ID, traceId);
             if (!StringUtils.isBlank(traceId)) {
 //            log.info("当前traceId:{}", traceId);
                 log.info("当前traceId:{}", traceId);

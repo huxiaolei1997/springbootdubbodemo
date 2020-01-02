@@ -1,2 +1,2 @@
-traceFilter=com.demo.springboot.dubbo.filter.ProviderTraceFilter
-consumerFilter=com.demo.springboot.dubbo.filter.ConsumerTraceFilter
+providerTraceFilter=com.demo.springboot.dubbo.filter.ProviderTraceFilter
+consumerTraceFilter=com.demo.springboot.dubbo.filter.ConsumerTraceFilter
