@@ -67,10 +67,26 @@
             </exclusions>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <artifactId>common-parent</artifactId>-->
+<!--            <groupId>com.yyigou.ddc</groupId>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
+            <artifactId>common-dubbo-trace</artifactId>
+            <groupId>com.yyigou.ddc</groupId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>dubbo</artifactId>
+                    <groupId>com.alibaba</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-log4j12</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.alibaba.boot</groupId>
@@ -84,12 +100,11 @@
                     <artifactId>slf4j-api</artifactId>
                     <groupId>org.slf4j</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
             </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
         </dependency>
 
     </dependencies>

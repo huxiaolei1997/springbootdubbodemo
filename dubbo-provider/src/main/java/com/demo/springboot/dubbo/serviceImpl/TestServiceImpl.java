@@ -8,6 +8,8 @@ import com.demo.springboot.dubbo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
+import java.util.concurrent.*;
+
 /**
  * @author xiaolei hu
  * @date 2018/10/27 13:03
@@ -21,6 +23,14 @@ public class TestServiceImpl implements TestService {
     @Override
     public String getName(String name) {
         log.info("ddddssdfdfd" + name);
+        Thread thread = new Thread(() -> log.info("子线程中获取traceId: {}", name));
+        thread.start();
+
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 1, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
+        threadPoolExecutor.execute(() -> log.info("线程池中获取traceId-1: {}", name));
+
+        threadPoolExecutor.execute(() -> log.info("线程池中获取traceId-2: {}", name));
+//        threadPoolExecutor.start
         return "Your name is " + name;
     }
 
