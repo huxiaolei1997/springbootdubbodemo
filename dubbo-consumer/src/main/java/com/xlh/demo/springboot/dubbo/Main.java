@@ -1,4 +1,4 @@
-package com.demo.springboot.dubbo;
+package com.xlh.demo.springboot.dubbo;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
@@ -37,7 +37,7 @@ public class Main {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress("zookeeper://139.196.140.168:2181");
         ReferenceConfig<GenericService> referenceConfig = new ReferenceConfig<>();
-        referenceConfig.setInterface("com.demo.springboot.dubbo.TestService");
+        referenceConfig.setInterface("com.xlh.demo.springboot.dubbo.TestService");
 
         // 泛化调用的时候注意version，version 不对会导致找不到对应的提供者，造成调用失败
          referenceConfig.setVersion("1.0");
@@ -63,9 +63,9 @@ public class Main {
         System.out.println(result);
 
         Map<String, Object> params = new HashMap<>(16);
-        params.put("class", "com.demo.springboot.dubbo.UserDto");
+        params.put("class", "UserDto");
         params.put("userName", "测试名称");
-        Object result2 = genericService.$invoke("addUser", new String[]{"com.demo.springboot.dubbo.UserDto"}, new Object[]{params});
+        Object result2 = genericService.$invoke("addUser", new String[]{"UserDto"}, new Object[]{params});
         System.out.println(JSON.toJSONString(result2));
 
         System.exit(0);
@@ -77,7 +77,7 @@ public class Main {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress("zookeeper://139.196.140.168:2181");
         ReferenceConfig<GenericService> referenceConfig = new ReferenceConfig<>();
-        referenceConfig.setInterface("com.demo.springboot.dubbo.TestService");
+        referenceConfig.setInterface("com.xlh.demo.springboot.dubbo.TestService");
 
         // 泛化调用的时候注意version，version 不对会导致找不到对应的提供者，造成调用失败
          referenceConfig.setVersion("1.0");

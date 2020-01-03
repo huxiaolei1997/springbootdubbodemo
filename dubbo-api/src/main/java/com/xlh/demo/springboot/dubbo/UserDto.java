@@ -1,4 +1,4 @@
-package com.demo.springboot.dubbo;
+package com.xlh.demo.springboot.dubbo;
 
 import lombok.Data;
 

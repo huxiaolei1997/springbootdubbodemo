@@ -1,10 +1,11 @@
-package com.demo.springboot.dubbo.serviceImpl;
+package com.xlh.demo.springboot.dubbo.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
-import com.demo.springboot.dubbo.TestService;
-import com.demo.springboot.dubbo.UserDto;
-import com.demo.springboot.dubbo.UserVo;
+import com.xlh.demo.springboot.dubbo.TestService;
+import com.xlh.demo.springboot.dubbo.UserDto;
+import com.xlh.demo.springboot.dubbo.UserVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
 /**
@@ -14,11 +15,12 @@ import org.springframework.beans.BeanUtils;
 //@org.springframework.stereotype.Service // 不要用 spring 的注解
 // 相当于我们在 xml 里面配置的 东西
 //@Service(version = "${dubbo.application.version}", application = "${dubbo.application.id}", protocol = "${dubbo.protocol.id}", registry = "${dubbo.registry.id") // 在这里用 dubbo 里面的 service 注解，作用就是创建这个类型的对象，然后作为服务提供者发布出去
-@Service(version = "${dubbo.application.version}", filter = "traceFilter") // 在这里用 dubbo 里面的 service 注解，作用就是创建这个类型的对象，然后作为服务提供者发布出去
+@Service(version = "${dubbo.application.version}") // 在这里用 dubbo 里面的 service 注解，作用就是创建这个类型的对象，然后作为服务提供者发布出去
+@Slf4j
 public class TestServiceImpl implements TestService {
     @Override
     public String getName(String name) {
-        System.out.println("ddddssdfdfd" + name);
+        log.info("ddddssdfdfd" + name);
         return "Your name is " + name;
     }
 

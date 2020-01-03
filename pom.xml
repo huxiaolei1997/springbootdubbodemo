@@ -129,6 +129,11 @@
                 <version>2.1.1</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.xlh</groupId>
+                <artifactId>common-base-trace</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
