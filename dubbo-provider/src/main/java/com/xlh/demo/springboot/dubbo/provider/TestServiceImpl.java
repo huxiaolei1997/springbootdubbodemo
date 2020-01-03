@@ -1,4 +1,4 @@
-package com.xlh.demo.springboot.dubbo.serviceImpl;
+package com.xlh.demo.springboot.dubbo.provider;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
