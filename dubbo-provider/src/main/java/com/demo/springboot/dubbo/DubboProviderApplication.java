@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2018/10/27 13:51
  **/
 @EnableDubbo
-@DubboComponentScan(basePackages = {"com.demo.springboot", "com.yyigou.ddc"})
-@SpringBootApplication(scanBasePackages = {"com.demo.springboot", "com.yyigou.ddc"})
+@DubboComponentScan(basePackages = {"com.demo.springboot"})
+@SpringBootApplication(scanBasePackages = {"com.demo.springboot"})
 //@SpringBootApplication
 public class DubboProviderApplication {
     public static void main(String[] args) {

@@ -14,8 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  **/
 //@SpringBootApplication(scanBasePackages = {"com.demo.springboot.dubbo"})
 @EnableDubbo
-@DubboComponentScan(basePackages = {"com.demo.springboot", "com.yyigou.ddc"})
-@SpringBootApplication(scanBasePackages = {"com.demo.springboot", "com.yyigou.ddc"})
+@DubboComponentScan(basePackages = {"com.demo.springboot"})
+@SpringBootApplication(scanBasePackages = {"com.demo.springboot"})
 public class DubboConsumerApplication implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(DubboConsumerApplication.class, args);
