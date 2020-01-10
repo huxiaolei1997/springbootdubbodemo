@@ -2,9 +2,9 @@ package com.demo.springboot.dubbo;
 
 import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
-import com.yyigou.ddc.common.dubbo.trace.interceptor.RequestInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,8 +14,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  **/
 //@SpringBootApplication(scanBasePackages = {"com.demo.springboot.dubbo"})
 @EnableDubbo
-@DubboComponentScan(basePackages = {"com.demo.springboot", "com.yyigou.ddc"})
-@SpringBootApplication(scanBasePackages = {"com.demo.springboot", "com.yyigou.ddc"})
+@DubboComponentScan(basePackages = {"com.demo.springboot"})
+@SpringBootApplication(scanBasePackages = {"com.demo.springboot"})
+@ImportResource(locations = "classpath:spring-zipkin.xml")
 public class DubboConsumerApplication implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(DubboConsumerApplication.class, args);
@@ -23,6 +24,6 @@ public class DubboConsumerApplication implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new RequestInterceptor());
+//        registry.addInterceptor(new RequestInterceptor());
     }
 }
