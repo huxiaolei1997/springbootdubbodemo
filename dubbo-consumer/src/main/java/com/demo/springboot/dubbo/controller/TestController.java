@@ -22,9 +22,9 @@ public class TestController {
     @RequestMapping("/getname/{name}")
     public String getName(@PathVariable("name") String name) {
         String data = testService.getName(name);
-        log.info("fdsafdsa consumer" + name);
-        testService.addUser(new UserDto());
-        log.info("fdsaafdaf fdasf");
+//        log.info("fdsafdsa consumer" + name);
+//        testService.addUser(new UserDto());
+//        log.info("fdsaafdaf fdasf");
         return data;
     }
 }

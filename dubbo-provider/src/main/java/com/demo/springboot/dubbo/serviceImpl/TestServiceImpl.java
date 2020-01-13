@@ -1,12 +1,15 @@
 package com.demo.springboot.dubbo.serviceImpl;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
 import com.demo.springboot.dubbo.TestService;
 import com.demo.springboot.dubbo.UserDto;
+import com.demo.springboot.dubbo.UserProvider;
 import com.demo.springboot.dubbo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.concurrent.*;
 
@@ -20,6 +23,10 @@ import java.util.concurrent.*;
 @Service(version = "${dubbo.application.version}") // 在这里用 dubbo 里面的 service 注解，作用就是创建这个类型的对象，然后作为服务提供者发布出去
 @Slf4j
 public class TestServiceImpl implements TestService {
+
+    @Reference(version = "1.0")
+    private UserProvider userProvider;
+
     @Override
     public String getName(String name) {
         log.info("ddddssdfdfd" + name);
@@ -30,8 +37,12 @@ public class TestServiceImpl implements TestService {
         threadPoolExecutor.execute(() -> log.info("线程池中获取traceId-1: {}", name));
 
         threadPoolExecutor.execute(() -> log.info("线程池中获取traceId-2: {}", name));
+
+        UserDto userDto = new UserDto();
+        userDto.setUserName(name);
+        UserVo userVo = userProvider.getUser(userDto);
 //        threadPoolExecutor.start
-        return "Your name is " + name;
+        return "Your name is " + userVo.getUserName();
     }
 
     @Override

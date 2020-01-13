@@ -13,7 +13,6 @@ import org.springframework.context.annotation.ImportResource;
 @EnableDubbo
 @DubboComponentScan(basePackages = {"com.demo.springboot"})
 @SpringBootApplication(scanBasePackages = {"com.demo.springboot"})
-//@SpringBootApplication
 @ImportResource(locations = "classpath:spring-zipkin.xml")
 public class DubboProviderApplication {
     public static void main(String[] args) {

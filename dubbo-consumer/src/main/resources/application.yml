@@ -2,7 +2,7 @@ spring:
   application:
     name: dubbo-consumer-demo
 server:
-  port: 9092
+  port: 9093
 dubbo:
   application:
     name: dubbo-consumer

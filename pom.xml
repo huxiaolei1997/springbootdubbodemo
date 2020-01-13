@@ -8,7 +8,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>dubbo-api</module>
+        <module>dubbo-api-2</module>
         <module>dubbo-provider</module>
+        <module>dubbo-provider-2</module>
         <module>dubbo-consumer</module>
     </modules>
     <packaging>pom</packaging>

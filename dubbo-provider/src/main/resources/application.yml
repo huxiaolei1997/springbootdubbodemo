@@ -1,6 +1,6 @@
 dubbo:
   application:
-    name: dubbo-provider
+    name: dubbo-provider-1
     version: 1.0
   protocol:
     name: dubbo
@@ -10,8 +10,10 @@ dubbo:
     filter: tracing # 这里必须配置 filter 否则链路跟踪会不生效，因为 TracingFilter不是默认激活的，是在url中包含 tracing 才会激活的
   registry:
     address: zookeeper://139.196.140.168:2181
+  consumer:
+    check: false
 server:
   port: 9091
 spring:
   application:
-    name: dubbo-provider-demo
+    name: dubbo-provider-1

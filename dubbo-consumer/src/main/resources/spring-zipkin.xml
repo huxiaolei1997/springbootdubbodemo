@@ -10,7 +10,7 @@
     </bean>
 
     <bean id="tracing" class="brave.spring.beans.TracingFactoryBean">
-        <property name="localServiceName" value="dubbo-provider"/>
+        <property name="localServiceName" value="dubbo-consumer"/>
         <property name="spanReporter" ref="asyncReporterFactoryBean" />
         <property name="currentTraceContext" ref="currentTraceContextFactoryBean"/>
     </bean>
