@@ -10,20 +10,20 @@
     </bean>
 
     <bean id="tracing" class="brave.spring.beans.TracingFactoryBean">
-        <property name="localServiceName" value="client"/>
-        <property name="spanReporter">
-            <bean class="zipkin2.reporter.beans.AsyncReporterFactoryBean">
-                <property name="sender" ref="sender"/>
-                <!-- wait up to half a second for any in-flight spans on close -->
-                <property name="closeTimeout" value="500"/>
-            </bean>
-        </property>
-        <property name="currentTraceContext">
-            <bean class="brave.spring.beans.CurrentTraceContextFactoryBean">
-                <property name="scopeDecorators">
-                    <bean class="brave.context.slf4j.MDCScopeDecorator" factory-method="create"/>
-                </property>
-            </bean>
-        </property>
+        <property name="localServiceName" value="dubbo-provider"/>
+        <property name="spanReporter" ref="asyncReporterFactoryBean" />
+        <property name="currentTraceContext" ref="currentTraceContextFactoryBean"/>
     </bean>
+
+    <bean id="asyncReporterFactoryBean" class="zipkin2.reporter.beans.AsyncReporterFactoryBean">
+        <property name="sender" ref="sender"/>
+        <!-- wait up to half a second for any in-flight spans on close -->
+        <property name="closeTimeout" value="500"/>
+    </bean>
+
+    <bean id="currentTraceContextFactoryBean" class="brave.spring.beans.CurrentTraceContextFactoryBean">
+        <property name="scopeDecorators" ref="mDcScopeDecorator" />
+    </bean>
+
+    <bean id="mDcScopeDecorator" class="brave.context.slf4j.MDCScopeDecorator" factory-method="create"/>
 </beans>
