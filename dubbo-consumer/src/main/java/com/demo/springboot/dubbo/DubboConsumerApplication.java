@@ -2,7 +2,7 @@ package com.demo.springboot.dubbo;
 
 import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
-import com.yyigou.ddc.common.dubbo.trace.interceptor.RequestInterceptor;
+import com.xlh.common.dubbo.trace.interceptor.RequestInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

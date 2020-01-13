@@ -55,12 +55,12 @@
 
 <!--            <dependency>-->
 <!--                <artifactId>common-parent</artifactId>-->
-<!--                <groupId>com.yyigou.ddc</groupId>-->
+<!--                <groupId>com.xlh</groupId>-->
 <!--                <version>2.0.0-SNAPSHOT</version>-->
 <!--            </dependency>-->
             <dependency>
                 <artifactId>common-dubbo-trace</artifactId>
-                <groupId>com.yyigou.ddc</groupId>
+                <groupId>com.xlh</groupId>
                 <version>2.0.0-SNAPSHOT</version>
             </dependency>
 

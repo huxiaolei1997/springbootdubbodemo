@@ -92,12 +92,12 @@
 
 <!--        <dependency>-->
 <!--            <artifactId>common-parent</artifactId>-->
-<!--            <groupId>com.yyigou.ddc</groupId>-->
+<!--            <groupId>com.xlh</groupId>-->
 <!--        </dependency>-->
 
         <dependency>
             <artifactId>common-dubbo-trace</artifactId>
-            <groupId>com.yyigou.ddc</groupId>
+            <groupId>com.xlh</groupId>
             <exclusions>
                 <exclusion>
                     <artifactId>dubbo</artifactId>
