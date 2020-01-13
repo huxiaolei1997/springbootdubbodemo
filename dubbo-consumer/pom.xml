@@ -91,22 +91,6 @@
             </exclusions>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <artifactId>common-parent</artifactId>-->
-        <!--            <groupId>com.yyigou.ddc</groupId>-->
-        <!--        </dependency>-->
-
-        <!--        <dependency>-->
-        <!--            <artifactId>common-dubbo-trace</artifactId>-->
-        <!--            <groupId>com.yyigou.ddc</groupId>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <artifactId>dubbo</artifactId>-->
-        <!--                    <groupId>com.alibaba</groupId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
-
         <!-- 1. brave 对 dubbo 的集成 -->
         <dependency>
             <groupId>io.zipkin.brave</groupId>
