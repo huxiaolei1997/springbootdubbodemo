@@ -22,7 +22,12 @@
     </bean>
 
     <bean id="currentTraceContextFactoryBean" class="brave.spring.beans.CurrentTraceContextFactoryBean">
-        <property name="scopeDecorators" ref="mDcScopeDecorator" />
+<!--        <property name="scopeDecorators" ref="mDcScopeDecorator" />-->
+        <property name="scopeDecorators">
+            <list>
+                <ref bean="mDcScopeDecorator" />
+            </list>
+        </property>
     </bean>
 
     <bean id="mDcScopeDecorator" class="brave.context.slf4j.MDCScopeDecorator" factory-method="create"/>
