@@ -7,6 +7,7 @@ import com.demo.springboot.dubbo.TestService;
 import com.demo.springboot.dubbo.UserDto;
 import com.demo.springboot.dubbo.UserProvider;
 import com.demo.springboot.dubbo.UserVo;
+import com.demo.springboot.dubbo.consumer.UserConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,8 @@ import java.util.concurrent.*;
 @Service(version = "${dubbo.application.version}") // 在这里用 dubbo 里面的 service 注解，作用就是创建这个类型的对象，然后作为服务提供者发布出去
 @Slf4j
 public class TestServiceImpl implements TestService {
-
-    @Reference(version = "1.0")
-    private UserProvider userProvider;
+    @Autowired
+    private UserConsumer userConsumer;
 
     @Override
     public String getName(String name) {
@@ -40,7 +40,7 @@ public class TestServiceImpl implements TestService {
 
         UserDto userDto = new UserDto();
         userDto.setUserName(name);
-        UserVo userVo = userProvider.getUser(userDto);
+        UserVo userVo = userConsumer.getUser(userDto);
 //        threadPoolExecutor.start
         return "Your name is " + userVo.getUserName();
     }

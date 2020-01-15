@@ -6,6 +6,7 @@ server:
 dubbo:
   application:
     name: dubbo-consumer
+    version: 1.0
   registry:
     address: zookeeper://139.196.140.168:2181?backup=139.196.140.168:2182,139.196.140.168:2183
   consumer:
