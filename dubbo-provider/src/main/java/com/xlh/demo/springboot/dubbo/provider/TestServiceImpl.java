@@ -8,6 +8,8 @@ import com.xlh.demo.springboot.dubbo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
+import java.util.Map;
+
 /**
  * @author xiaolei hu
  * @date 2018/10/27 13:03
@@ -25,10 +27,25 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    public String getAge(Map<String, Integer> params, String name) {
+        return "Your ages is " + params.get("age");
+    }
+
+    @Override
+    public String getName(UserDto userDto, String name) {
+        return "Your name is" + userDto.getUserName();
+    }
+
+    @Override
     public UserVo addUser(UserDto userDto) {
         System.out.println("UserDto is " + JSON.toJSONString(userDto));
         UserVo userVo = new UserVo();
         BeanUtils.copyProperties(userDto, userVo);
         return userVo;
+    }
+
+    @Override
+    public void testInvoke() {
+        System.out.println("testInvoke");
     }
 }

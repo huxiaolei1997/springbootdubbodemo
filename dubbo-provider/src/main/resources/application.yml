@@ -8,7 +8,7 @@ dubbo:
   provider:
     timeout: 60000
   registry:
-    address: zookeeper://139.196.140.168:2181?backup=139.196.140.168:2182,139.196.140.168:2183
+    address: zookeeper://127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183
 server:
   port: 9091
 spring:
